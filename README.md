@@ -139,7 +139,9 @@ Una aplicación web o móvil puede consumir los datos desde la base de datos o u
 
 ## 👥 Autores
 
-- Integrantes del semillero de investigación  
+- Faibel Estiven Duque Giraldo
+- Sergio Andres Velaides Romero
+- SEMARD
 - Programa de Ingeniería de Sistemas
 
 ---
