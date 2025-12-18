@@ -114,3 +114,37 @@ Este componente diferencia el proyecto a nivel de **ingeniería de sistemas**, i
 
 ## 🧱 Arquitectura General del Sistema
 
+*(Opcional)*  
+Una aplicación web o móvil puede consumir los datos desde la base de datos o una API intermedia.
+
+---
+
+## 🚀 Tecnologías Utilizadas
+
+- ESP32
+- MQTT (Mosquitto)
+- InfluxDB
+- Grafana
+- Docker
+- (Opcional) Node.js / NestJS
+- (Opcional) Flutter / Dart
+
+---
+
+## 📌 Estado del Proyecto
+
+🟡 En fase de diseño y prototipado.
+
+---
+
+## 👥 Autores
+
+- Integrantes del semillero de investigación  
+- Programa de Ingeniería de Sistemas
+
+---
+
+## 📄 Licencia
+
+Este proyecto se desarrolla con fines académicos y de investigación.
+
