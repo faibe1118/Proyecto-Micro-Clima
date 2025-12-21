@@ -1,0 +1,31 @@
+services:
+  # 1. Broker MQTT (El cartero)
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: clima_mqtt
+    ports:
+      - "1883:1883"      # Puerto para MQTT (ESP32 y NestJS)
+      - "9001:9001"      # Puerto para Websockets (Opcional)
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+
+  # 2. Base de Datos (InfluxDB v2)
+  influxdb:
+    image: influxdb:2.7
+    container_name: clima_db
+    ports:
+      - "8086:8086"      # Puerto para ver el panel web y conectar NestJS
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=password123  # ¡Cambia esto si vas a producción!
+      - DOCKER_INFLUXDB_INIT_ORG=semillero       # Nombre de tu organización
+      - DOCKER_INFLUXDB_INIT_BUCKET=clima_data   # Nombre de la base de datos (bucket)
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=mi-token-super-secreto-admin
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+
+volumes:
+  influxdb_data:

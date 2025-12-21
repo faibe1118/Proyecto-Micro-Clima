@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+mosquitto/data/
+mosquitto/log/
+npm-debug.log
+.DS_Store
