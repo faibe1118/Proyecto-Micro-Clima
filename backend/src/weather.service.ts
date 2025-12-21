@@ -13,7 +13,11 @@ export class WeatherService {
         const org = process.env.INFLUX_ORG;
         const bucket = process.env.INFLUX_BUCKET;
 
-        this.client = new InfluxDB({ url, token });
+        if(!url || !token || !org || !bucket) {
+            throw new Error("Faltan variables de entorno para InfluxDB");
+        }
+
+        this.client = new InfluxDB({ url , token });
         this.writeApi = this.client.getWriteApi(org, bucket);
         console.log('💾 Servicio de InfluxDB inicializado');
     }
