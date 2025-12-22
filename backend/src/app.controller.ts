@@ -28,4 +28,16 @@ export class AppController {
     // LLAMADA AL SERVICIO PARA GUARDAR
     await this.weatherService.guardarDatos(mensajeObj);
   }
+
+  @Get('/api/clima/actual')
+  async obtenerClima() {
+    const datos = await this.weatherService.obtenerUltimoDato();
+
+    //si el objeto está vacío, devolvemos un mensaje indicando que no hay datos
+    if (Object.keys( datos ).length === 0) {
+      return { message: 'No hay datos disponibles' };
+    }
+
+    return datos;
+  }
 }
