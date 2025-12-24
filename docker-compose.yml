@@ -26,6 +26,17 @@ services:
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=mi-token-super-secreto-admin
     volumes:
       - influxdb_data:/var/lib/influxdb2
+  
+  grafana:
+    image: grafana/grafana:latest
+    container_name: clima_dashboard
+    ports:
+      - "3001:3000"      # Entras por el 3001, Grafana escucha en el 3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin  
+    depends_on:
+      - influxdb         # Espera a que la base de datos arranque primero
 
 volumes:
   influxdb_data:
